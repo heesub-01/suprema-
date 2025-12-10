@@ -114,24 +114,42 @@ const swiper = new Swiper(".swiper-container", {
 
 
 
-// 2섹션 배경// 
+// 2섹션 배경
 gsap.registerPlugin(ScrollTrigger);
 
-/* 🔥 1) 원 확장 애니메이션 */
-gsap.fromTo(".sec-2-img",
-  {
-    clipPath: "circle(100px at 50% 50%)"   // 시작 크기
-  },
-  {
-    clipPath: "circle(350vmax at 50% 50%)", // ★ 아주 큰 원 → 훨씬 느리게 퍼짐
-    ease: "sine.out",                       // ★ 가장 부드러운 감속
-    scrollTrigger: {
-      trigger: ".sec-2",
-      start: "top top",
-      end: "+=200%",                        // ★ 섹션 길이 200%
-      scrub: 2,                             // ★ 자연스럽게 따라오고 감속됨
-      pin: true
-    }
+document.querySelector(".sec-2-img").style.willChange = "clip-path";
+
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sec-2",
+    start: "top top",
+    end: "+=300%",
+    scrub: 1.5,
+    pin: true,
   }
+});
+
+/* 1) 원 확장 */
+tl.fromTo(".sec-2-img",
+  { clipPath: "circle(100px at 50% 50%)" },
+  { clipPath: "circle(120vmax at 50% 50%)", ease: "none", duration: 1 }
+);
+
+/* 2) 원이 거의 다 퍼진 후 → 배경 어둡게 */
+tl.to(".sec-2-overlay", 
+  { opacity: 1, duration: 0.6 },
+  ">-0.3" // 약간 겹치게
+);
+
+/* 3) 1차 타이틀 사라짐 */
+tl.to(".sec-2-title",
+  { opacity: 0, y: -40, duration: 0.6 },
+  "<"     // overlay와 동시에 진행
+);
+
+/* 4) 두번째 콘텐츠 등장 */
+tl.to(".sec-2-content",
+  { opacity: 1, y: 0, duration: 0.8 },
+  ">-0.1"
 );
 
