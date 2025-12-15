@@ -153,3 +153,28 @@ tl.to(".sec-2-content",
   ">-0.1"
 );
 
+
+
+// sec-4 버튼//
+
+const tabs = document.querySelectorAll(".tab");
+const contents = document.querySelectorAll(".tab-content");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.target;
+
+    // 버튼 상태
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    // 콘텐츠 전환
+    contents.forEach(c => {
+      c.classList.remove("active");
+      if (c.id === target) {
+        c.classList.add("active");
+      }
+    });
+  });
+});
+
