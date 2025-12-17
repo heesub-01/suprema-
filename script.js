@@ -154,27 +154,35 @@ tl.to(".sec-2-content",
 );
 
 
+$(function () {
 
-// sec-4 버튼//
+  const option = {
+    slidesPerView: 2.2,   // 🔥 핵심: 3보다 작게
+    spaceBetween: 32,
+    speed: 600,
+    observer: true,
+    observeParents: true,
+  };
 
-const tabs = document.querySelectorAll(".tab");
-const contents = document.querySelectorAll(".tab-content");
+  const bioSwiper    = new Swiper(".sec4-bio-swiper", option);
+  const rfSwiper     = new Swiper(".sec4-rf-swiper", option);
+  const accessSwiper = new Swiper(".sec4-access-swiper", option);
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    const target = tab.dataset.target;
+  $(".sec-4 .tab").on("click", function () {
+    const target = $(this).data("target");
 
-    // 버튼 상태
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
+    $(".sec-4 .tab").removeClass("active");
+    $(this).addClass("active");
 
-    // 콘텐츠 전환
-    contents.forEach(c => {
-      c.classList.remove("active");
-      if (c.id === target) {
-        c.classList.add("active");
-      }
-    });
+    $(".sec-4 .swiper-wrap").removeClass("active");
+    $("#" + target).addClass("active");
+
+    // 활성 Swiper 강제 갱신
+    const sw = $("#" + target).find(".swiper")[0].swiper;
+    if (sw) {
+      sw.slideTo(0, 0);
+      sw.update();
+    }
   });
-});
 
+});
