@@ -542,6 +542,13 @@ ul, li { list-style: none; }
   background-size: cover;
   background-position: center;
 }
+.service-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* ← 여기서 밝기 조절 */
+  z-index: 1;
+}
 
 .service-item:hover {
   flex: 2;
@@ -552,9 +559,9 @@ ul, li { list-style: none; }
   left: 30px;
   top: 435px;
   color: #fff;
-	font-size: 2rem;
   opacity: 0;
   transition: opacity 0.4s ease;
+  z-index: 999;
 }
 
 .service-item:hover .service-text {
@@ -566,3 +573,66 @@ ul, li { list-style: none; }
 .service-item:nth-child(3) { background-image: url(images/sec-5-img\ \(2\).png); }
 .service-item:nth-child(4) { background-image: url(images/sec-5-img\ \(3\).png); }
 .service-item:nth-child(5) { background-image: url(images/sec-5-img\ \(5\).png); }
+
+.text-1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.text-2 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.center-text {
+  display: flex;
+  align-items: center;
+}
+.center-text p {
+  color: #B0004D;
+  margin-left: 10px;
+  font-size: 58px;
+}
+
+.text-3 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.sec-5-button {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* 6섹션 */
+
+.sec-6 {
+  height: 900px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.sec-6-main_text {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.sec-6-sub_text {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: #707070;
+}
+
+.sec-6-mark:nth-child(1) {position: absolute; left: 120px; top: 455px;}
+.sec-6-mark:nth-child(2) {position: absolute; left: 270px; top: 80px;}
+.sec-6-mark:nth-child(3) {position: absolute; right: 55px; top: 365px;}
+.sec-6-mark:nth-child(4) {position: absolute; right: 345px; top: 470px;}
+.sec-6-mark:nth-child(5) {position: absolute; right: 335px; top:95px;}

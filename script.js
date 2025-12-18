@@ -1,3 +1,5 @@
+
+
 const header = document.querySelector(".header");
 const menuItems = document.querySelectorAll(".menu-item");
 const dropdownLayer = document.querySelector(".dropdown-layer");
@@ -185,4 +187,21 @@ $(function () {
     }
   });
 
+});
+
+
+
+AOS.init();
+
+window.addEventListener("load", () => {
+  AOS.refreshHard();
+
+  // sec-6 마크 강제 리셋
+  document.querySelectorAll(".sec-6-mark").forEach(el => {
+    el.classList.remove("aos-animate");
+  });
+
+  setTimeout(() => {
+    AOS.refresh();
+  }, 100);
 });
