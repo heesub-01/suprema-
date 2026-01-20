@@ -636,3 +636,40 @@ ul, li { list-style: none; }
 .sec-6-mark:nth-child(3) {position: absolute; right: 55px; top: 365px;}
 .sec-6-mark:nth-child(4) {position: absolute; right: 345px; top: 470px;}
 .sec-6-mark:nth-child(5) {position: absolute; right: 335px; top:95px;}
+
+
+/* 섹션7 */
+
+.sec-7 {
+  background-image: url(images/sec-7-bg.png);
+  background-size: cover;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sec-7-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  gap:5px;
+}
+.main-title-6 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.sub-title-6 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.sec-7-button {
+  color: #fff;
+  display: flex;
+  justify-content: end;
+  padding-right: 115px;
+}
