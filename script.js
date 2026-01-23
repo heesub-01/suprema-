@@ -95,20 +95,12 @@ function closeDropdown() {
 }
 
 // 1섹션 배경 스와이퍼//
-const swiper = new Swiper(".swiper-container", {
+const heroBgSwiper = new Swiper(".swiper-container", {
   effect: "fade",
-  fadeEffect: {
-    crossFade: true
-  },
-
-  speed: 2000, // 페이드 길게
+  fadeEffect: { crossFade: true },
+  speed: 2000,
   loop: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-
-  // 깜빡임 방지 핵심 옵션
+  autoplay: { delay: 4000, disableOnInteraction: false },
   watchSlidesProgress: true,
   virtualTranslate: true,
 });
@@ -207,11 +199,16 @@ window.addEventListener("load", () => {
 });
 
 
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
+// 뉴스룸섹션 스와이퍼 //
+const newsEl = document.querySelector(".newsroom-card-swiper");
+if (newsEl) {
+  const newsroomSwiper = new Swiper(newsEl, {
+    slidesPerView: "auto",
+    spaceBetween: 30,
+    
+    navigation: {
+    nextEl: ".newsroom-card-swiper .swiper-button-next",
+    prevEl: ".newsroom-card-swiper .swiper-button-prev",
+  },
+  });
+}

@@ -647,13 +647,14 @@ ul, li { list-style: none; }
   display: flex;
   justify-content: center;
   flex-direction: column;
+  gap: 30px;
+  padding-bottom: 100px;
 }
 
 .sec-7-title {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: center;  
   color: #fff;
   gap:5px;
 }
@@ -672,4 +673,70 @@ ul, li { list-style: none; }
   display: flex;
   justify-content: end;
   padding-right: 115px;
+  cursor: pointer;
+}
+
+.newsroom-card-swiper {
+   height: 400px;
+   width: 100%;
+   padding: 115px;
+   cursor: pointer;
+}
+
+.newsroom-card-swiper .swiper-slide {
+  width: 400px;
+}
+.news-card {
+  width: 100%;
+  padding: 30px;
+  text-align: left;
+  gap: 20px;
+  box-sizing: border-box;
+
+  /* 🔥 유리 느낌 핵심 */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  /* 카드 떠있는 느낌 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.news-card p {
+  font-size: 14px;
+  color: #EAEAEA;
+  font-weight: 300;
+  height: 224px;
+}
+
+.news-card .date {
+  margin-top: 20px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.news-card .date > img {
+  width: 15px;
+  height: 15px;
+  opacity: 1;
+  filter: none;
+  fill: #fff;
+}
+.news-card > h3 > div {
+  opacity: 0;
+}
+
+.newsroom-card-swiper .swiper-button-prev,
+.newsroom-card-swiper .swiper-button-next {
+  color: #fff;           
+  width: 48px;
+  height: 48px;
+  margin: 0 20px;
 }
